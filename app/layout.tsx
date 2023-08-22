@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import Navbar from './components/navbar/Navbar'
+import ClientOnly from './components/ClientOnly'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   description: 'airbnb clone',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <Navbar />
-        {children}
+        <ClientOnly>
+          <Navbar />
+          {children}
+        </ClientOnly>
       </body>
     </html>
   )
