@@ -3,6 +3,9 @@
 
 const nextConfig = {
     reactStrictMode: true,
+    experimental: {
+      appDir: true,
+    },
     images: {
         domains: [
           "ucarecdn.com",
@@ -17,6 +20,9 @@ const nextConfig = {
           "m.media-amazon.com", 
           "imagekit.io",
           "ik.imagekit.io",
+          'res.cloudinary.com', 
+          'avatars.githubusercontent.com',
+          'lh3.googleusercontent.com'
         ],
       },
       typescript: {
